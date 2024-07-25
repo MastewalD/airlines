@@ -5,11 +5,12 @@ const autoOpen = true;
 //Framework:
 const express = require("express");
 var session = require("express-session");
+require("dotenv").config();
 //Database:
 const mongoose = require("mongoose");
-require("dotenv").config(); //enables environment variables
+ //enables environment variables
 const process = require("process");
-let DB ="mongodb+srv://hymanotgebeyehu:3AKy2fdLphD1FFJy@cluster0.5oskg4o.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+let DB =process.env.DB
 //Aid:
 const path = require("path");
 const bodyParser = require("body-parser");
@@ -17,7 +18,7 @@ const errorController = require("./controllers/error.js"); //handle errors
 const open = require("open"); //open page automatically when app launches
 const { waitUntil } = require("./utils.js");
 //Info:
-const port = 3000;
+const port = process.env.PORT || 3000;
 const url = `http://localhost:${port}/`;
 const info = `\u001b[2;36mInfo:\u001b[0m `; //info console color
 const error = `\u001b[2;31mError:\u001b[0m `; //error console color
